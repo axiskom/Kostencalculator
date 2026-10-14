@@ -1,6 +1,6 @@
 {
-  "name": "AXISKOM Batchkosten",
-  "short_name": "Batchkosten",
+  "name": "AXISKOM Kosten Calculator",
+  "short_name": "Kosten Calculator",
   "description": "Bereken wat een batch kost. Een tool van AXISKOM, alles blijft op je eigen toestel.",
   "lang": "nl",
   "start_url": "./",

@@ -1,5 +1,5 @@
 // Verhoog CACHE bij elke wijziging aan de bestanden, dan krijgen gebruikers de nieuwe versie.
-const CACHE = 'batchkosten-v10';
+const CACHE = 'kosten-calculator-v12';
 const BESTANDEN = [
   './',
   'index.html',

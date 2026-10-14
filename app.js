@@ -2,7 +2,7 @@
   'use strict';
 
   /* =====================================================================
-     Batchkosten, kostprijs van een batch berekenen.
+     Kosten Calculator, kostprijs van een batch berekenen.
      Alles wordt lokaal bewaard (localStorage), er is geen server of account.
      Back-up en herstel gaan via een JSON-bestand.
 
@@ -113,7 +113,7 @@
   function schoon(d) {
     // Een tekstbestand kan van alles zijn, dus controleren we of het echt op een back-up lijkt.
     if (!d || typeof d !== 'object' || !(Array.isArray(d.grondstoffen) || Array.isArray(d.recepten) || Array.isArray(d.batches))) {
-      throw new Error('Dit is geen back-upbestand van Batchkosten.');
+      throw new Error('Dit is geen back-upbestand van Kosten Calculator.');
     }
     const str = (v, max = 200) => (typeof v === 'string' ? v.slice(0, max) : '');
     const nr = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null);
@@ -819,7 +819,7 @@
       item.opbrengstAantal > 0 ? `Opbrengst ${getal(item.opbrengstAantal)} ${item.opbrengstEenheid}${per.length ? ', ' + per.map((p) => `${p.label.toLowerCase()} ${eurFijn(p.waarde)}`).join(', ') : ''}` : null,
       winkel,
       '',
-      'Berekend met Batchkosten van AXISKOM, axiskom.nl',
+      'Berekend met Kosten Calculator van AXISKOM, axiskom.nl',
     ].filter((x) => x !== null).join('\n');
   }
 
@@ -849,7 +849,7 @@
         h('tr', { class: 'som' }, h('td', null, 'Totaal'), h('td', null, eur(m.totaal)))),
       item.opbrengstAantal > 0 ? h('p', null, `Opbrengst ${getal(item.opbrengstAantal)} ${item.opbrengstEenheid}${per.length ? ', ' + per.map((p) => `${p.label.toLowerCase()} ${eurFijn(p.waarde)}`).join(', ') : ''}`) : null,
       winkel ? h('p', null, winkel) : null,
-      h('p', { class: 'voetnoot' }, 'Berekend met Batchkosten van AXISKOM, axiskom.nl'));
+      h('p', { class: 'voetnoot' }, 'Berekend met Kosten Calculator van AXISKOM, axiskom.nl'));
     document.body.append(blok);
     document.body.classList.add('afdrukken');
     window.print();
@@ -966,7 +966,7 @@
         b.opbrengstAantal == null ? '' : String(b.opbrengstAantal).replace('.', ','), b.opbrengstAantal ? b.opbrengstEenheid : '',
         per ? String(Math.round(per.waarde * 10000) / 10000).replace('.', ',') : '', dec(b.winkelprijs), b.notitie].map(tekst).join(';');
     });
-    downloadBestand(`batchkosten-historie-${vandaag()}.csv`, '\ufeff' + [kop.join(';'), ...rijen].join('\r\n'), 'text/csv;charset=utf-8');
+    downloadBestand(`kosten-calculator-historie-${vandaag()}.csv`, '\ufeff' + [kop.join(';'), ...rijen].join('\r\n'), 'text/csv;charset=utf-8');
   }
 
   /* =====================================================================
@@ -1212,7 +1212,7 @@
   function overKaart() {
     return inklap('over', h('span', { class: 'titel' }, 'Over deze tool'),
       h('div', { class: 'inhoud over' },
-        h('p', null, 'Batchkosten is gemaakt door AXISKOM, voor iedereen die thuis brood bakt, worst maakt of kaas maakt en wil weten wat een batch echt kost.'),
+        h('p', null, 'Kosten Calculator is gemaakt door AXISKOM, voor iedereen die thuis brood bakt, worst maakt of kaas maakt en wil weten wat een batch echt kost.'),
         h('p', { class: 'muted' }, 'Je gegevens blijven op je eigen toestel. Er is geen account, geen server en geen tracking.')));
   }
 
@@ -1352,7 +1352,7 @@
   function exporteerBackup() {
     const json = backupInhoud();
     bewaar();
-    downloadBestand(`batchkosten-backup-${vandaag()}.txt`, json, 'text/plain;charset=utf-8');
+    downloadBestand(`kosten-calculator-backup-${vandaag()}.txt`, json, 'text/plain;charset=utf-8');
     render();
   }
 
@@ -1363,11 +1363,11 @@
   async function deelBackup() {
     const vorige = state.laatsteBackup;
     const json = backupInhoud();
-    const naam = `batchkosten-backup-${vandaag()}.txt`;
+    const naam = `kosten-calculator-backup-${vandaag()}.txt`;
     const bestand = new File([json], naam, { type: 'text/plain' });
     if (navigator.canShare({ files: [bestand] })) {
       try {
-        await navigator.share({ files: [bestand], title: 'Batchkosten back-up' });
+        await navigator.share({ files: [bestand], title: 'Kosten Calculator back-up' });
         bewaar();
         render();
         return;
@@ -1389,7 +1389,7 @@
       if (bestand.size > 20 * 1024 * 1024) throw new Error('Het bestand is te groot.');
       nieuw = schoon(JSON.parse(await bestand.text()));
     } catch (e) {
-      const tekst = e instanceof SyntaxError ? 'Dit is geen back-upbestand van Batchkosten.' : (e.message || 'Dit bestand kan niet gelezen worden.');
+      const tekst = e instanceof SyntaxError ? 'Dit is geen back-upbestand van Kosten Calculator.' : (e.message || 'Dit bestand kan niet gelezen worden.');
       await dialoog({ titel: 'Terugzetten mislukt', tekst, ok: 'OK', annuleer: null });
       return;
     }

@@ -1,4 +1,4 @@
-# Batchkosten, een tool van AXISKOM
+# Kosten Calculator, een tool van AXISKOM
 
 Bereken wat een batch kost, van brood tot worst en kaas. Dit is de kostenberekening uit Kaasdagboek en Worstendagboek, als losse tool. Geen account, geen server en geen tracking, alles blijft op je eigen toestel.
 
@@ -13,7 +13,7 @@ Na het activeren van GitHub Pages staat de tool op `https://<je-gebruikersnaam>.
 
 ## Gegevens en back-up
 
-Alles staat in `localStorage` van de browser op het toestel waarop je de tool gebruikt. Wissel je van toestel of wis je de browserdata, dan is het weg. Maak daarom af en toe een back-up via Instellingen en Back-up downloaden. Dat geeft een gewoon tekstbestand (`batchkosten-backup-datum.txt`), dat je op een ander toestel terugzet met Back-up terugzetten. Oudere back-ups als `.json` worden nog steeds gelezen. Op een telefoon of tablet kun je de back-up ook delen via het deelmenu, bijvoorbeeld naar Google Drive, WhatsApp of e-mail. Een automatische koppeling met een cloud is er bewust niet, want dat vraagt om een account en haalt het voordeel van alles op je eigen toestel weg.
+Alles staat in `localStorage` van de browser op het toestel waarop je de tool gebruikt. Wissel je van toestel of wis je de browserdata, dan is het weg. Maak daarom af en toe een back-up via Instellingen en Back-up downloaden. Dat geeft een gewoon tekstbestand (`kosten-calculator-backup-datum.txt`), dat je op een ander toestel terugzet met Back-up terugzetten. Oudere back-ups als `.json` worden nog steeds gelezen. Op een telefoon of tablet kun je de back-up ook delen via het deelmenu, bijvoorbeeld naar Google Drive, WhatsApp of e-mail. Een automatische koppeling met een cloud is er bewust niet, want dat vraagt om een account en haalt het voordeel van alles op je eigen toestel weg.
 
 Gegevens horen bij het adres waarop de tool draait. Een andere URL betekent een lege tool tot je een back-up terugzet.
 
