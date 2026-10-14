@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Batchkosten | AXISKOM</title>
+  <meta name="description" content="Bereken wat een batch kost, van brood tot worst en kaas. Een tool van AXISKOM. Alles blijft op je eigen toestel.">
+  <meta name="author" content="AXISKOM">
+  <meta name="theme-color" content="#3C6E47">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-in">
+      <img src="icons/logo-96.png" alt="AXISKOM" width="48" height="48">
+      <div>
+        <h1>Batchkosten</h1>
+        <a class="van" href="https://www.axiskom.nl" target="_blank" rel="noopener noreferrer">een tool van AXISKOM</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="voet">
+    <p>Batchkosten is een tool van <a href="https://www.axiskom.nl" target="_blank" rel="noopener noreferrer">AXISKOM</a>. Weten wat je eet, en ook wat het kost.</p>
+    <p>
+      <a href="https://www.axiskom.nl/planners/" target="_blank" rel="noopener noreferrer">Meer tools</a> ·
+      <a href="https://www.axiskom.nl/app/" target="_blank" rel="noopener noreferrer">Conserveer tools</a> ·
+      <a href="https://www.youtube.com/@axiskom" target="_blank" rel="noopener noreferrer">YouTube</a> ·
+      <a href="https://kaasdagboek.nl" target="_blank" rel="noopener noreferrer">Kaasdagboek</a> ·
+      <a href="https://worstendagboek.nl" target="_blank" rel="noopener noreferrer">Worstendagboek</a> (binnenkort)
+    </p>
+  </footer>
+
+  <nav class="tabs" id="tabs" aria-label="Hoofdmenu"></nav>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="dlg"></dialog>
+
+  <noscript><p style="padding:16px">Deze tool heeft JavaScript nodig.</p></noscript>
+  <script src="app.js"></script>
+</body>
+</html>
